@@ -144,6 +144,26 @@ router.route('/users/:user_id')
 
         });
     })
+    //delete user
+    .delete(function(req, res) {
+        //first, get the user and see if it has any reviews
+        Users.findById(req.params.user_id, function(err, user) {
+            if (err){
+                res.json({ error: 'error getting user: ' +err });
+            }else{
+                Users.remove( {_id: user._id}, 
+                    function(err) {
+                        if (err){
+                            res.json({ error: 'error removing lift: ' +err });
+                        }else{
+                            res.json({ sucess: 'removed user' });
+                        }
+                    }
+                );
+                
+            }
+        });
+    })
 
 
 
