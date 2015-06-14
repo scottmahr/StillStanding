@@ -1,0 +1,98 @@
+
+
+@red: #F24845;
+@blue: #1B2F33;
+@teal: #28502E;
+@green: #47682C;
+@brown: #EAD2AC;
+
+
+
+
+body {
+
+  background-color: @brown; 
+ 
+  /* position: fixed; */
+  width: 100%;
+  margin: 0;
+  height: 780px;
+  z-index: -1;
+
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: white;
+
+overflow: hidden;
+}
+
+h2{
+  font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; 
+
+}
+
+
+
+
+
+.logo{
+  float: left;
+  height:7vh; 
+  margin:1vh;
+
+}
+
+.headtxt{
+    float: left;
+
+      font-size: 7vh;
+  padding-top: 1vh;
+  padding-left:3vh;
+
+
+
+    &.green{
+        color: @teal;
+
+    }
+
+}
+
+.court{
+    padding-top: 0;
+    width:100%;
+
+    overflow: hidden;
+}
+
+.buttons{
+    position: absolute;
+    bottom:2vh;left:0;right:0;
+
+
+}
+
+
+.button{
+    display: inline-block;
+        text-align: center ;
+    margin: 2vw;
+    padding: 5vw 0;
+    width: 28.5vw;
+    cursor: pointer;
+
+
+    &.green{
+        background-color: @green;
+    }
+    &.red{
+        background-color: @red;
+    }
+    &.blue{
+        background-color: @blue;
+    }
+    
+
+
+}
