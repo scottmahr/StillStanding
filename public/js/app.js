@@ -13,7 +13,7 @@ app.config(function(RestangularProvider,$routeProvider,$provide) {
       });
 
     //RestangularProvider.setBaseUrl('http://localhost:5000/api');
-    RestangularProvider.setBaseUrl('http://deploy.herokuapp.com/api');
+    RestangularProvider.setBaseUrl('http://stillstanding.herokuapp.com/api');
     RestangularProvider.setRestangularFields({
       id: "_id"
     });
@@ -43,3 +43,20 @@ Array.prototype.wSlice = function (start, end) {
 Math.log10 = Math.log10 || function(x) {
   return Math.log(x) / Math.LN10;
 };
+
+app.filter('tc', function () {
+  return function (input) {
+    var words = input.split(' ');
+    for (var i = 0; i < words.length; i++) {
+      words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    }
+    return words.join(' ');
+  }
+});
+
+
+app.filter('int', function () {
+  return function (input) {
+    return parseInt(input);
+  }
+});

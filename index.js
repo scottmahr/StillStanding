@@ -107,9 +107,10 @@ router.route('/users')
     })
 
     .get(function(req, res) {
-        Users.find(function(err, users) {
+        var query = Users.find().sort('name').exec(
+            function(err, users) {
             if (err){
-                res.json({ error: err });
+                res.json({ error: err });;
             }else{
                 res.json(users);
             }

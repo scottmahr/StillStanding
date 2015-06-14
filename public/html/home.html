@@ -6,7 +6,7 @@
 </div>
 
 <div class='currentUser'>    
-    <span class="cUserName">{{m.userList[m.cUserIdx].name}}</span> 
+    <span class="cUserName">{{m.userList[m.cUserIdx].name|tc}}</span> 
     <span class="cUserHeight" ng-show="d.lastDataTime>m.cTime-3000">({{d.height}}m)</span><br>
     <span class="icon-{{m.userList[m.cUserIdx].icon}} bigIcon" ng-class="{red:m.userList[m.cUserIdx].icon=='falling'}"></span>
 </div>
@@ -14,8 +14,13 @@
 <div class="userList">
     <div class="users" ng-repeat="user in m.userList">
         <span class="icon-{{user.icon}} smallIcon" ng-class="{red:user.icon=='falling'}"></span>
-        <span class="userTxt">{{user.name}}</span>
-        <span class="userTime" ng-class="{orange:user.lastTime>10,red:user.lastTime>30}">({{user.lastTime}}s)</span>
+        <span class="userTxt">{{user.name|tc}}</span>
+        <span class="userTime" ng-show="(m.cTime-user.lastDataTime)/1000<300" ng-class="{orange:(m.cTime-user.lastDataTime)/1000>10,red:(m.cTime-user.lastDataTime)/1000>30}">
+            ({{(m.cTime-user.lastDataTime)/1000|int}}s)
+        </span>
+
+        <span class="userTime red" ng-show="(m.cTime-user.lastDataTime)/1000>300">(na)</span>
+
     </div>
 </div>
 
