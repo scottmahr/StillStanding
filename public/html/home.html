@@ -1,17 +1,29 @@
-<img src="../css/img/logo.png" class="logo">
-<span class="headtxt green">DEPLOY</span>
-<br>
+<div class="header">
+    <span class="icon-falling headerIcon"></span>
+    <span class="headtxt">still</span>
+    <span class="headtxt orange">STANDING</span>
 
-    
+</div>
 
+<div class='currentUser'>    
+    <span class="cUserName">{{m.userList[m.cUserIdx].name}}</span> 
+    <span class="cUserHeight" ng-show="d.lastDataTime>m.cTime-3000">({{d.height}}m)</span><br>
+    <span class="icon-{{m.userList[m.cUserIdx].icon}} bigIcon" ng-class="{red:m.userList[m.cUserIdx].icon=='falling'}"></span>
+</div>
 
-
+<div class="userList">
+    <div class="users" ng-repeat="user in m.userList">
+        <span class="icon-{{user.icon}} smallIcon" ng-class="{red:user.icon=='falling'}"></span>
+        <span class="userTxt">{{user.name}}</span>
+        <span class="userTime" ng-class="{orange:user.lastTime>10,red:user.lastTime>30}">({{user.lastTime}}s)</span>
+    </div>
+</div>
 
 
 <div class='buttons'>
-    <div class="button green" ng-click='shoot()'>SHOOT!</div>
-    <div class="button blue" ng-click='auto()'>AUTO</div>
-    <div class="button red" ng-click='clear()'>CLEAR</div>
+    <div class="button orange" ng-click='connect()'>CONNECT</div>
+    <div class="button blue" ng-click='changeUser()'>CHANGE USER</div>
+    <div class="button green" ng-click='standing()'>STANDING</div>
 </div>
 
 

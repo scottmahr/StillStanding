@@ -50,8 +50,9 @@ mongoose.connect(uristring, function (err, res) {
 var userSchema = new mongoose.Schema({
     cDate: { type: Date, default: Date.now },   //date item was created
     name: {type: String, lowercase: true, trim: true,required:true,unique:true},                    
-    icon: { type: String, default: "oldman" },    //free, busy, onTask               
-    positions: { type: mongoose.Schema.Types.Mixed, default: [] },    //[time,pos] , pos is 0,1,2
+    icon: { type: String, default: "oldman" },    //free, busy, onTask   
+    standingIcon: { type: String, default: "oldman" },    //free, busy, onTask               
+    lastDataTime: { type: Number, default: 0 },    //free, busy, onTask 
 }, { versionKey: false });
 
 
