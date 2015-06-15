@@ -32,13 +32,11 @@ app.service('BTLE', function($q,$timeout,FormCollar,Globals,BTData) {
                     //FormState.connectedToCollar = true;
                     //FormState.collarMac = response.mac;
                     console.log('connect succeeded:'+response.mac);
+                    BTData.mac = response.mac;
                     //Reading services
                     FormCollar.readServices().then(
                         function(services) {
-                            console.log('got here')
 
-
-          
                             $timeout(function(){
                                 self.resetTouch();
                             },900);

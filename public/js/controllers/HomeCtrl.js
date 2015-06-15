@@ -38,6 +38,11 @@ app.controller('HomeCtrl', function ($scope,$interval,$timeout,$location,Restang
         BTLE.initFormCollar();
     }
 
+    $scope.reset = function(){
+        console.log('connecting');
+        BTLE.resetTouch();
+    }
+
     $scope.changeUser = function(){
         $scope.m.cUserIdx = ($scope.m.cUserIdx+1)%$scope.m.userList.length;
     }

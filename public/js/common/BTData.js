@@ -21,6 +21,8 @@ app.service('BTData', function($rootScope,$timeout,Globals) {
 
     this.isFallen = false;
 
+    this.mac = 'not connected';
+
     var self = this;
 
 
@@ -71,10 +73,10 @@ app.service('BTData', function($rootScope,$timeout,Globals) {
             this.elevRaw[this.elevCount%400] = (data[0]/10)-this.elevOffset;
 
             //we need to make sure the value is not really wrong
-            if(Math.abs(this.elevRaw[this.elevCount%400]-this.elevRaw[(this.elevCount+399)%400]) > 5){
-                console.log('we see a bad elevation point');
-                this.elevRaw[this.elevCount%400] = this.elevRaw[(this.elevCount+399)%400];
-            }
+            //if(Math.abs(this.elevRaw[this.elevCount%400]-this.elevRaw[(this.elevCount+399)%400]) > 5){
+            //    console.log('we see a bad elevation point');
+            //    this.elevRaw[this.elevCount%400] = this.elevRaw[(this.elevCount+399)%400];
+           // }
 
 
             this.height = parseInt(Globals.myAverage(this.elevRaw.wSlice(this.elevCount-50,this.elevCount)).mean*10)/10;

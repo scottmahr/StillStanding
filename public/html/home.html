@@ -26,10 +26,12 @@
 
 
 <div class='buttons'>
-    <div class="button orange" ng-click='connect()'>CONNECT</div>
+    <div class="button orange" ng-if="d.mac=='not connected'" ng-click='connect()'>CONNECT</div>
+    <div class="button orange" ng-if="d.mac!='not connected'" ng-click='reset()'>RESET</div>
     <div class="button blue" ng-click='changeUser()'>CHANGE USER</div>
     <div class="button green" ng-click='standing()'>STANDING</div>
 </div>
+<span class="mac">{{d.mac}}</span> 
 
 
 
